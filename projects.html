@@ -92,22 +92,48 @@
                             </a>
                         </p>
                         <p align="left">
-                            Semantic role labeling (SRL) is a shallow semantic parsing task that helps determine <i>who</i>
-                            did <i>what</i> to <i>whom</i> at <i>where</i> by recovering the latent predicate-argument
-                            structure of the sentence. Linguistically Informed Self-Attention (LISA)
-                            is a neural network model developed by Emma Strubell at IESL that makes use of syntactic
-                            information to achieve more than 2.5 F1 absolute improvement over the previous state-of-the-art
-                            SRL systems on the CoNLL-12 English SRL task.
+                            Semantic role labeling (SRL) is a shallow semantic parsing task that helps determine
+                            <i>who</i> did <i>what</i> to <i>whom</i> at <i>where</i> by recovering the latent
+                            predicate-argument structure of the sentence. Linguistically Informed Self-Attention (LISA)
+                            is a neural network
+                            model developed by <a href="people.cs.umass.edu/~strubell">Emma
+                            Strubell</a> at IESL that makes use of syntactic information to achieve more than 2.5 F1
+                            absolute improvement over the previous state-of-the-art SRL systems on the CoNLL-12 English
+                            SRL task.
+                        </p>
+                        <p align="left">
 
-                            Error analysis on the model revealed that fixing labeling errors resulted in an improvement of
-                            over 6 F1. That is, the predicates and arguments were identified correctly in these cases,
-                            but classified wrong. My analysis further showed that 31% of the labeling errors were due to
-                            core argument confusion. Core arguments or roles in the PropBank label set (which is the label
-                            set used in the CoNLL-12 data) are verb-specific roles from ARG0-ARG5. 
+                            Error analysis on the model revealed that artificially fixing labeling errors resulted in an
+                            improvement of over 6 F1. That is, the predicates and arguments were identified correctly in
+                            these cases, but classified wrong. My analysis further showed that 31% of the labeling
+                            errors were due to
+                            core argument confusion. Core arguments or roles in the PropBank label set (which is the
+                            label set used in the CoNLL-12 data) are verb-specific roles from ARG0-ARG5. Reducing core
+                            argument
+                            confusion would thus help in making SRL more accurate.
+                        </p>
+                        <p align="left">
+                            In order to do this, we needed more information about the roles and decided to augment the
+                            PropBank labels with finer-grained VerbNet labels. A mapping between PropBank and VerbNet
+                            for Wall Street Journal articles, a subset of NewsWire, is available via the SemLink
+                            project. Now, a subset of the training data has two information sources for the labels, with
+                            PropBank having six core roles (ARG0 - ARG5) that map to almost 50 VerbNet roles (Agent,
+                            Theme, Location, Instrument, etc.), but the secondary labels have to be integrated into the
+                            original model.
+                        </p>
+                        <p>
+                            Since LISA is already making use of multi-task learning, a weak way to incorporate the
+                            VerbNet roles into the learnt representations is to make the model predict VerbNet labels in
+                            addition to the PropBank labels while doing SRL, such that the shared parameters help
+                            provide more information. A more explicit way of using the new labels is: attend to each
+                            VerbNet class and use these attention weights to compose a weighted average of the VerbNet
+                            role representations. This averaged representation is then added to the PropBank input
+                            representation. I'm still running experiments to tune hyperparameters but the improved LISA
+                            model should be finished by the end of summer!
                         </p>
                     </td>
                     <td width="40%" valign="middle">
-                        May 2018 - Present
+                        Jun 2018 - Present
                     </td>
                 </tr>
                 <tr>
