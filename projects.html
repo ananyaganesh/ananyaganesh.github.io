@@ -79,12 +79,12 @@
         <td>
             <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
                 <tr>
-                    <td width="20%" valign="middle">
-                        <p>
-                            <img src="lisa.PNG" height="200" width="200">
-                        </p>
-                    </td>
-                    <td width="40%" valign="middle">
+                    <!--<td width="20%" valign="middle">-->
+                        <!--<p>-->
+                            <!--<img src="lisa.PNG" height="200" width="200">-->
+                        <!--</p>-->
+                    <!--</td>-->
+                    <td width="60%">
                         <p>
                             <a name="LISA-SRL">
                                 <heading>Improved representations for semantic role labeling using fine-grained roles
@@ -124,14 +124,17 @@
                     </td>
                 </tr>
                 <tr>
-                    <td width="20%" valign="middle">
+                    <!--<td width="20%" valign="middle">-->
+                        <!--<p>-->
+                            <!--<img src="wsi.jpg" height="200" width="200">-->
+                        <!--</p>-->
+                    <!--</td>-->
+                    <td width="60%">
                         <p>
-                            <img src="wsi.jpg" height="200" width="200">
+                            <heading>Efficient Graph-Based Word Sense Induction</heading>
                         </p>
-                    </td>
-                    <td width="50%" valign="middle">
                         <p>
-                            <heading>Graph-Based Word Sense Induction</heading>
+                            <a href="https://arxiv.org/abs/1804.03257">arxiv</a> | <a href="poster_wsi.pdf">poster</a>
                         </p>
                         <p align="justify">
                             This project was undertaken with the hypothesis that resolving polysemy would help improve
@@ -154,15 +157,20 @@
                             Sense clusters are
                             then obtained by clustering basis indexes using spectral clustering. We represent each sense
                             cluster by a sense embedding, which is the average of the topic embeddings in the cluster,
-                            weighted by its relevance to the target word. We then perform expectation-maximization to
+                            weighted by its relevance to the target word.
+                        </p>
+                        <p>
+                            We then perform expectation-maximization to
                             refine the sense embeddings, where the E-step is replacing all words in the corpus with the
                             sense it represents, and the M-step is to retrain word embeddings using the induced senses.
                             Our method beats the previous state-of-the-art on several word context relevance tasks while
-                            producing more interpretable sense clusters more efficiently.
+                            producing more interpretable sense clusters more efficiently. While we haven't yet been able
+                            to correlate better word sense disambiguation with improvement in sentiment analysis, we
+                            plan to get back to this task in the near future.
                         </p>
 
                     </td>
-                    <td width="30%">
+                    <td width="40%">
                         Feb 2018 - Apr 2018
                     </td>
                 </tr>
