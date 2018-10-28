@@ -87,45 +87,35 @@
                     <td width="40%" valign="middle">
                         <p>
                             <a name="LISA-SRL">
-                                <heading>Improved representations for semantic role labeling using fine-grained labels
+                                <heading>Improved representations for semantic role labeling using fine-grained roles
                                 </heading>
                             </a>
                         </p>
                         <p align="left">
                             Semantic role labeling (SRL) is a shallow semantic parsing task that helps determine
                             <i>who</i> did <i>what</i> to <i>whom</i> at <i>where</i> by recovering the latent
-                            predicate-argument structure of the sentence.
+                            predicate-argument structure of the sentence. SRL is a fundamental problem in NLP that is
+                            also useful in applications such as question answering, machine translation and information
+                            extraction. I've been working on reducing labeling errors on a state-of-the art SRL model
+                            called Linguistically-Informed Self Attention (<a href="https://arxiv.org/abs/1804.08199">LISA</a>)
+                            developed by <a href="http://people.cs.umass.edu/~strubell">Emma Strubell</a>. LISA is a
+                            neural network model that performs multi-task learning across dependency parsing,
+                            part-of-speech tagging, predicate detection and SRL.
                         </p>
                         <p align="left">
 
-                            Error analysis on the model revealed that artificially fixing labeling errors resulted in an
-                            improvement of over 6 F1. That is, the predicates and arguments were identified correctly in
-                            these cases, but classified wrong. My analysis further showed that 31% of the labeling
-                            errors were due to
-                            core argument confusion. Core arguments or roles in the PropBank label set (which is the
-                            label set used in the CoNLL-12 data) are verb-specific roles from ARG0-ARG5. Reducing core
-                            argument
-                            confusion would thus help in making SRL more accurate.
+                            Error analysis on the model revealed that if labeling errors alone were fixed, the score
+                            would improve by 5.8 absolute F1. That is, the predicates and arguments were identified
+                            correctly in several cases, but classified wrong. My analysis further showed that 31% of the
+                            labeling errors were due to core argument confusion in the PropBank label set (verb-specific
+                            roles from ARG0-ARG5). While PropBank is a useful semantic formalism, it defines
+                            coarse-grained labels which aren't strictly associated with a role. Since the meaning of a
+                            role changes across different predicates, it can be difficult for the model to learn these
+                            roles. To fix this, we're augmenting PropBank labels with finer-grained VerbNet labels by
+                            first predicting VerbNet roles and using the predictions to compose an auxiliary role
+                            representation which is then utilized for PropBank SRL.
                         </p>
-                        <p align="left">
-                            In order to do this, we needed more information about the roles and decided to augment the
-                            PropBank labels with finer-grained VerbNet labels. A mapping between PropBank and VerbNet
-                            for Wall Street Journal articles, a subset of NewsWire, is available via the SemLink
-                            project. Now, a subset of the training data has two information sources for the labels, with
-                            PropBank having six core roles (ARG0 - ARG5) that map to almost 50 VerbNet roles (Agent,
-                            Theme, Location, Instrument, etc.), but the secondary labels have to be integrated into the
-                            original model.
-                        </p>
-                        <p>
-                            Since LISA is already making use of multi-task learning, a weak way to incorporate the
-                            VerbNet roles into the learnt representations is to make the model predict VerbNet labels in
-                            addition to the PropBank labels while doing SRL, such that the shared parameters help
-                            provide more information. A more explicit way of using the new labels is: attend to each
-                            VerbNet class and use these attention weights to compose a weighted average of the VerbNet
-                            role representations. This averaged representation is then added to the PropBank input
-                            representation. I'm still running experiments but the improved LISA
-                            model should be finished by the end of summer!
-                        </p>
+
                     </td>
                     <td width="40%" valign="middle">
                         Jun 2018 - Present
@@ -145,7 +135,8 @@
                             As part of an independent study, I worked with Lexalytics in Spring 2018 with the objective
                             of improving sentiment analysis by resolving polysemy. Polysemy is the phenomenon of a
                             single word having multiple senses, like <i>bank</i> the financial institution and
-                            <i>bank</i> as in river bank, and the task of selecting the right sense is called word sense disambiguation. We developed an efficient method to perform word sense
+                            <i>bank</i> as in river bank, and the task of selecting the right sense is called word sense
+                            disambiguation. We developed an efficient method to perform word sense
                             induction using graph-based clustering.
                         </p>
                         <p>
