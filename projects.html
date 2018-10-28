@@ -107,11 +107,13 @@
                             Error analysis on the model revealed that if labeling errors alone were fixed, the score
                             would improve by 5.8 absolute F1. That is, the predicates and arguments were identified
                             correctly in several cases, but classified wrong. My analysis further showed that 31% of the
-                            labeling errors were due to core argument confusion in the PropBank label set (verb-specific
+                            labeling errors were due to core argument confusion in the <a
+                                href="https://propbank.github.io/">PropBank</a> label set (verb-specific
                             roles from ARG0-ARG5). While PropBank is a useful semantic formalism, it defines
                             coarse-grained labels which aren't strictly associated with a role. Since the meaning of a
                             role changes across different predicates, it can be difficult for the model to learn these
-                            roles. To fix this, we're augmenting PropBank labels with finer-grained VerbNet labels by
+                            roles. To fix this, we're augmenting PropBank labels with finer-grained <a
+                                href="https://verbs.colorado.edu/~mpalmer/projects/verbnet.html">VerbNet</a> labels by
                             first predicting VerbNet roles and using the predictions to compose an auxiliary role
                             representation which is then utilized for PropBank SRL.
                         </p>
@@ -132,16 +134,33 @@
                             <heading>Graph-Based Word Sense Induction</heading>
                         </p>
                         <p align="justify">
-                            As part of an independent study, I worked with Lexalytics in Spring 2018 with the objective
-                            of improving sentiment analysis by resolving polysemy. Polysemy is the phenomenon of a
+                            This project was undertaken with the hypothesis that resolving polysemy would help improve
+                            sentiment analysis . Polysemy is the phenomenon of a
                             single word having multiple senses, like <i>bank</i> the financial institution and
-                            <i>bank</i> as in river bank, and the task of selecting the right sense is called word sense
-                            disambiguation. We developed an efficient method to perform word sense
+                            <i>bank</i> as in river bank. The task of selecting the right sense is called word sense
+                            disambiguation, while the unsupervised discovery of latent senses is called word sense
+                            induction (WSI). We developed an efficient method to perform word sense
                             induction using graph-based clustering.
                         </p>
                         <p>
-                            The key idea here is to build an ego network of
+                            Typically, graph-based clustering methods for WSI construct an 'ego-network' by finding the
+                            nearest neighbors of the target word in the word-embedding space. However, this can be
+                            computationally expensive if the graph is large, so we instead proposed to group words into
+                            basis indexes that resemble topics, and then construct a graph in which each node is a basis
+                            index relevant to the topic word. To obtain these basis indexes, we make use of
+                            Distributional Inclusion Vector Embeddings(<a
+                                href="https://arxiv.org/abs/1710.00880">DIVE</a>) developed by <a
+                                href="http://people.umass.edu/hawshiuancha/">Haw-Shiuan Chang</a>.
+                            Sense clusters are
+                            then obtained by clustering basis indexes using spectral clustering. We represent each sense
+                            cluster by a sense embedding, which is the average of the topic embeddings in the cluster,
+                            weighted by its relevance to the target word. We then perform expectation-maximization to
+                            refine the sense embeddings, where the E-step is replacing all words in the corpus with the
+                            sense it represents, and the M-step is to retrain word embeddings using the induced senses.
+                            Our method beats the previous state-of-the-art on several word context relevance tasks while
+                            producing more interpretable sense clusters more efficiently.
                         </p>
+
                     </td>
                     <td width="30%">
                         Feb 2018 - Apr 2018
