@@ -252,9 +252,19 @@
                             <heading>Visual Place Recognition</heading>
                         </p>
                         <p>
+                            <a href="Report">report</a>
+                        </p>
+                        <p>
                             As a course project for Computer Vision, I worked on automatically identifying the location
-                            of a
-                            place given only an image and no other metadata.
+                            of a place given only an image and no other metadata. We compared three
+                            machine learning models which use different kinds of features
+                            and evaluate their suitability for this task. The first
+                            approach uses a color histogram to represent the image; the
+                            second approach uses the GIST global descriptor as image
+                            features; the third approach uses raw images with a convolutional
+                            neural network without explicitly extracting features. We used the <a
+                                href="http://crcv.ucf.edu/data/GMCP_Geolocalization/">Google Street View dataset</a>,
+                            which contains 62058 images from three cities: Pittsburgh, Orlando, and New York.
                         </p>
                     </td>
                     <td width="30%">
@@ -274,7 +284,11 @@
                         <p>
                             This was a project that I worked on over 36 hours at HackUMass 2017 along with some cool
                             undergrads that I met at the venue. We built a signaling system that could alert hearing
-                            impaired drivers if a vehicle with sirens is in the vicinity.
+                            impaired drivers if a vehicle with sirens is in the vicinity. To detect sirens, we trained a
+                            neural network on the UrbanSounds dataset, by extracting features such as the short-time
+                            Fourier transform, mel spectogram, and contrast. Our model achieved a test time accuracy of
+                            over 91%. We then interfaced with a Myo wristband using the Myo-SDK to make the wristband
+                            vibrate every time a siren was detected.
                         </p>
                     </td>
                     <td width="30%">
