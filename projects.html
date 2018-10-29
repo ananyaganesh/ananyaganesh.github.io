@@ -80,14 +80,14 @@
             <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
                 <tr>
                     <!--<td width="20%" valign="middle">-->
-                        <!--<p>-->
-                            <!--<img src="lisa.PNG" height="200" width="200">-->
-                        <!--</p>-->
+                    <!--<p>-->
+                    <!--<img src="lisa.PNG" height="200" width="200">-->
+                    <!--</p>-->
                     <!--</td>-->
                     <td width="60%">
                         <p>
                             <a name="LISA-SRL">
-                                <heading>Improved representations for semantic role labeling using fine-grained roles
+                                <heading>Improved representation learning for semantic role labeling
                                 </heading>
                             </a>
                         </p>
@@ -125,9 +125,9 @@
                 </tr>
                 <tr>
                     <!--<td width="20%" valign="middle">-->
-                        <!--<p>-->
-                            <!--<img src="wsi.jpg" height="200" width="200">-->
-                        <!--</p>-->
+                    <!--<p>-->
+                    <!--<img src="wsi.jpg" height="200" width="200">-->
+                    <!--</p>-->
                     <!--</td>-->
                     <td width="60%">
                         <p>
@@ -174,27 +174,27 @@
                         Feb 2018 - Apr 2018
                     </td>
                 </tr>
-                <tr>
-                    <td width="20%" valign="middle">
-                        <p>
-                            <img src="dil.PNG" height="200" width="200">
-                        </p>
-                    </td>
-                    <td width="50%" valign="middle">
-                        <p>
-                            <heading>Faster dependency parsing using iterative dilated convolutions</heading>
-                        </p>
-                        <p>
-                            Iterative dilated CNNs are a stack of dilated convolutional layers, found to be effective
-                            for
-                            fast sequence labeling. I worked on integrating ID-CNNs into the LISA model
-                            as a replacement for the LSTM.
-                        </p>
-                    </td>
-                    <td width="30%">
-                        Mar 2018 - Present?
-                    </td>
-                </tr>
+                <!--<tr>-->
+                <!--<td width="20%" valign="middle">-->
+                <!--<p>-->
+                <!--<img src="dil.PNG" height="200" width="200">-->
+                <!--</p>-->
+                <!--</td>-->
+                <!--<td width="50%" valign="middle">-->
+                <!--<p>-->
+                <!--<heading>Faster dependency parsing using iterative dilated convolutions</heading>-->
+                <!--</p>-->
+                <!--<p>-->
+                <!--Iterative dilated CNNs are a stack of dilated convolutional layers, found to be effective-->
+                <!--for-->
+                <!--fast sequence labeling. I worked on integrating ID-CNNs into the LISA model-->
+                <!--as a replacement for the LSTM.-->
+                <!--</p>-->
+                <!--</td>-->
+                <!--<td width="30%">-->
+                <!--Mar 2018 - Present?-->
+                <!--</td>-->
+                <!--</tr>-->
                 <tr>
                     <td width="20%" valign="middle">
                         <p>
@@ -206,8 +206,35 @@
                             <heading>Low-shot visual recognition for faces</heading>
                         </p>
                         <p>
-                            As a course project for Neural Networks, I re-implemented Hariharan and Girshick's approach
-                            for low-shot visual recognition using hallucination and shrinking features.
+                            <a href="Final%20report.pdf">report</a> | <a
+                                href="http://github.com/ananyaganesh/low-shot-face">code</a>
+                        </p>
+                        <p>
+                            Low shot learning, or the ability to learn from a small
+                            number of examples, is a relevant problem in the domain of
+                            facial recognition, where access to training data is limited by cost and privacy issues
+                            We explored a solution based on data augmentation by hallucinating
+                            new examples, which was <a href="https://arxiv.org/abs/1606.02819">found to work well</a>
+                            for
+                            classification on ImageNet by researchers at Facebook AI Research. We used a subset of <a
+                                href="https://www.microsoft.com/en-us/research/project/ms-celeb-1m-challenge-recognizing-one-million-celebrities-real-world/">MS-Celeb-1</a>
+                            for training data.
+                        </p>
+                        <p>
+                            In the low-shot
+                            learning set-up, there are a fixed number of base classes, for
+                            which a large number of training examples are available,
+                            and then there are novel classes, for which a limited number
+                            of training examples are available. The classifier is then evaluated based on its ability to
+                            correctly classify both the base and novel classes. Our data augmentation method creates new
+                            examples for the novel classes in the following way: The features of each base class are
+                            grouped
+                            into clusters using K-means clustering. The difference between two clusters can be
+                            considered a transformation, such as a front-facing image to a side-facing image. All
+                            transformations are mined from all base classes and used to train a generator. Then, for
+                            each image in the novel class, a set of transformations are applied on the base class to
+                            generate new examples. We compare to a baseline where images are generated by naive
+                            approaches such as jittering, and achieve a significant improvement.
                         </p>
                     </td>
                     <td width="30%">
