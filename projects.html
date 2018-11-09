@@ -197,9 +197,9 @@
                 <!--</tr>-->
                 <tr>
                     <!--<td width="20%" valign="middle">-->
-                        <!--<p>-->
-                            <!--<img src="low-shot.PNG" height="200" width="200">-->
-                        <!--</p>-->
+                    <!--<p>-->
+                    <!--<img src="low-shot.PNG" height="200" width="200">-->
+                    <!--</p>-->
                     <!--</td>-->
                     <td width="60%">
                         <p>
@@ -243,9 +243,9 @@
                 </tr>
                 <tr>
                     <!--<td width="20%" valign="middle">-->
-                        <!--<p>-->
-                            <!--<img src="geo.PNG" height="200" width="200">-->
-                        <!--</p>-->
+                    <!--<p>-->
+                    <!--<img src="geo.PNG" height="200" width="200">-->
+                    <!--</p>-->
                     <!--</td>-->
                     <td width="60%">
                         <p>
@@ -273,9 +273,9 @@
                 </tr>
                 <tr>
                     <!--<td width="20%" valign="middle">-->
-                        <!--<p>-->
-                            <!--<img src="siren.jpg">-->
-                        <!--</p>-->
+                    <!--<p>-->
+                    <!--<img src="siren.jpg">-->
+                    <!--</p>-->
                     <!--</td>-->
                     <td width="60%">
                         <p>
@@ -297,9 +297,9 @@
                 </tr>
                 <tr>
                     <!--<td width="20%" valign="middle">-->
-                        <!--<p>-->
-                            <!--<img src="quoterequest.png">-->
-                        <!--</p>-->
+                    <!--<p>-->
+                    <!--<img src="quoterequest.png">-->
+                    <!--</p>-->
                     <!--</td>-->
                     <td width="60%">
                         <p>
@@ -315,18 +315,37 @@
                 </tr>
                 <tr>
                     <!--<td width="20%" valign="middle">-->
-                        <!--<p>-->
-                            <!--<img src="siren.jpg">-->
-                        <!--</p>-->
+                    <!--<p>-->
+                    <!--<img src="siren.jpg">-->
+                    <!--</p>-->
                     <!--</td>-->
                     <td width="60%">
                         <p>
                             <heading>Detecting variability in multi-word expressions</heading>
                         </p>
                         <p>
-                            I worked as a research intern at the Computational Linguistics lab at Nara Institute of
-                            Science
-                            and Technology in Japan.
+                            As a research intern at the <a href="https://cl.naist.jp/en/">Computational
+                            Linguistics Lab</a> of Nara Institute of
+                            Science and Technology, Japan, I worked on multi-word expressions (MWE) with Professor <a
+                                href=" http://cl.naist.jp/staff/matsu/home-e.html">Yuji Matsumoto</a>. MWEs are made up
+                            of two or more words but tend to act as a single lexical unit, such as <i>by the way</i>.
+                            While the above expression is fixed, and always occurs exactly in one form, some MWEs may be
+                            flexible and thus harder to deal with, such as <i>under the circumstances</i> occurring as
+                            <i>under the specific circumstances</i>. My project was to
+                            automatically detect flexible-type multi word expressions (MWE) in English, and compile them
+                            into a dictionary to enable MWE-aware POS-tagging.
+                        </p>
+                        <p>
+                            Starting with a candidate list of over 2600 MWEs, I implemented a rule based system to
+                            detect occurrences of each MWE and its possible variations in the LDC GigaWord corpus. The
+                            initial
+                            rules were as follows: allow up to two intervening words at all positions in the MWE (for
+                            the MWE <i>a number of</i>, also look for <i>a large number of</i> and <i>a very large
+                            number of</i>), allow interchangeable articles and pronouns (<i>apple of his/her/their
+                            eye</i>), allow plural forms of nouns, and tense variations in verbs, etc. I then counted
+                            the usage of the original MWE in comparison with its modified versions and imposed a
+                            threshold to classify each as fixed or flexible, as well as to prune rules that didn't work
+                            well.
                         </p>
                     </td>
                     <td width="40%">
@@ -335,9 +354,9 @@
                 </tr>
                 <tr>
                     <!--<td width="20%" valign="middle">-->
-                        <!--<p>-->
-                            <!--<img src="bull.jpg">-->
-                        <!--</p>-->
+                    <!--<p>-->
+                    <!--<img src="bull.jpg">-->
+                    <!--</p>-->
                     <!--</td>-->
                     <td width="60%">
                         <p>
@@ -345,8 +364,14 @@
                         </p>
                         <p>
                             As a data science intern at Serendio Inc., I worked on developing a machine learning model
-                            to
-                            gauge expert opinion on trends in currency exchange using sentiment analysis.
+                            to gauge expert opinion on trends in currency exchange using sentiment analysis. The task
+                            was to predict whether the sentiment about a specific currency pair, such as USD/EUR was
+                            bullish (favors buying) or bearish (favors selling) based on posts on financial forums such
+                            as Bloomberg, moneycontrol, etc. To gather training data, we scraped posts from StockTwits,
+                            a forum on which users post their opinion on stock market trends and tag them as bullish or
+                            bearish. We then built an ensemble of multiple machine learning models to do sentiment
+                            classification. Specifically, I implemented a Naive-Bayes classifier which achieved an
+                            accuracy of over 94% on the validation set.
                         </p>
                     </td>
                     <td width="40%">
