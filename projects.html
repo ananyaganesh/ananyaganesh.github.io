@@ -306,7 +306,29 @@
                             <heading>CEGAR-based tool for specifying system properties</heading>
                         </p>
                         <p>
-                            This was my bachelor's thesis in the field of model checking.
+                            I worked on this project in collaboration with the Institute of Mathematical Sciences,
+                            Chennai, advised by Prof. Ramanujam and Prof. Sheerazuddin. Our objective was to build a
+                            tool
+                            to make model checking more accessible to software designers. Model checking is a technique
+                            for formal verification of concurrent or distributed systems, to ensure that the system
+                            meets specifications such as safety and liveness. Automated model checkers like NuSMV and
+                            SPIN check if the program satisfies the specified properties by taking in a description of
+                            the program and the properties. However, the properties typically have to be specified as
+                            formulae in Linear Temporal Logic (LTL), which makes it hard to do model checking at the
+                            design stage.
+                        </p>
+
+                        <p>
+                            To solve this problem, we built a tool based on the Counter-Example Guided Abstraction
+                            Refinement mechanism that generates LTL formulae when the property is specified in the form
+                            of a sequence diagram. This is done iteratively to help the user specify the property
+                            correctly while concurrently identifying problem areas in the system. That is, the initial
+                            'draft' of the formula is fed to the model checker along with the system description. If the
+                            property is violated, the model checker generates a trace, which is a sequence of states and
+                            actions where the system violates the property, either because of a bug, or because the
+                            property was incorrectly specified. To identify if it's the latter, we convert the trace
+                            back to a diagram which intuitively shows the possible sequence of messages that caused a
+                            failure. In this manner, the user can iteratively improve the system and the specification.
                         </p>
                     </td>
                     <td width="40%">
@@ -317,7 +339,7 @@
                     <!--<td width="20%" valign="middle">-->
                     <!--<p>-->
                     <!--<img src="siren.jpg">-->
-                    <!--</p>-->
+                    <!--</p>-
                     <!--</td>-->
                     <td width="60%">
                         <p>
